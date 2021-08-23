@@ -43,6 +43,8 @@ Places.prototype.destination = function() {
 
 // User Interface Logic
 
+
+
 let placesIveBeen = new PlacesIveBeen();
 
 $(document).ready(function(){
@@ -56,10 +58,16 @@ $(document).ready(function(){
     let newPlace = new Places(inputLocation, inputLandmarks, inputTime, inputNotes);
     placesIveBeen.addPlace(newPlace);
 
+    for (i=0; i <Object.keys(placesIveBeen).length; i++) {
+      let htmlOutput = "<ul>" + "<p>" + newPlace.location + "</p>" + "<li>" + newPlace.landmarks + "</li>" + "<li>" + newPlace.timeOfYear + "</li>" + "<li>" + newPlace.notes + "</li>" + "</ul>" ;
+      $(".location").html(htmlOutput);
+    }
 
 
     $(".card").show();
-    $(".location").append("<li>" + newPlace.location + "</li>");
+    
+
+    // "<li>" + newPlace.location + "</li>"
     // $(".addDetails").append("<ul>" + Object.keys() + "</ul>")
     
     // $(".addDetails").append("<li>" + "Landmarks: " + inputLandmarks + "</li>" + "<li>" + "Time of Year: "+ inputTime + "</li>" + "<li>" + "Notes: " + inputNotes + "</li>");
