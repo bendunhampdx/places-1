@@ -43,23 +43,33 @@ Places.prototype.destination = function() {
 
 // User Interface Logic
 
+let placesIveBeen = new PlacesIveBeen();
 
 $(document).ready(function(){
   $("#addPlace").submit(function(event){
     event.preventDefault();
-    let placesIveBeen = new PlacesIveBeen();
-    const inputLocation = $("#location").val();
-    const inputLandmarks = $("#landmarks").val();
-    const inputTime = $("#timeOfYear").val();
-    const inputNotes = $("#notes").val();
+   
+    let inputLocation = $("#location").val();
+    let inputLandmarks = $("#landmarks").val();
+    let inputTime = $("#timeOfYear").val();
+    let inputNotes = $("#notes").val();
     let newPlace = new Places(inputLocation, inputLandmarks, inputTime, inputNotes);
     placesIveBeen.addPlace(newPlace);
 
-    $(".card").append("<li>" + "Location: " + inputLocation + "</li>");
+
+
+    $(".card").show();
+    $(".location").append("<li>" + newPlace.location + "</li>");
+    // $(".addDetails").append("<ul>" + Object.keys() + "</ul>")
+    
+    // $(".addDetails").append("<li>" + "Landmarks: " + inputLandmarks + "</li>" + "<li>" + "Time of Year: "+ inputTime + "</li>" + "<li>" + "Notes: " + inputNotes + "</li>");
+    $(".card").click(function() {
+      $(".addDetails").show();
+    })
   })
 })
 
-// + "<li>" + "Landmarks: " + inputLandmarks + "</li>" + "<li>" + "Time of Year: "+ inputTime + "</li>" + "<li>" + "Notes: " + inputNotes + "</li>"
+
 // $(document).ready(function(){
 //   $("#submit").submit(function(event) {
 //     event.preventDefault();
