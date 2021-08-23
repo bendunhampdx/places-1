@@ -58,9 +58,9 @@ $(document).ready(function(){
     let newPlace = new Places(inputLocation, inputLandmarks, inputTime, inputNotes);
     placesIveBeen.addPlace(newPlace);
 
-    for (i=0; i <Object.keys(placesIveBeen).length; i++) {
+    for (i=0; i <Object.keys(placesIveBeen).length - 1; i++) {
       let htmlOutput = "<ul>" + "<p>" + newPlace.location + "</p>" + "<li>" + newPlace.landmarks + "</li>" + "<li>" + newPlace.timeOfYear + "</li>" + "<li>" + newPlace.notes + "</li>" + "</ul>" ;
-      $(".location").html(htmlOutput);
+      $(".location").append(htmlOutput);
     }
 
 
@@ -71,8 +71,8 @@ $(document).ready(function(){
     // $(".addDetails").append("<ul>" + Object.keys() + "</ul>")
     
     // $(".addDetails").append("<li>" + "Landmarks: " + inputLandmarks + "</li>" + "<li>" + "Time of Year: "+ inputTime + "</li>" + "<li>" + "Notes: " + inputNotes + "</li>");
-    $(".card").click(function() {
-      $(".addDetails").show();
+    $("p").click(function() {
+      $("li").show();
     })
   })
 })
