@@ -58,38 +58,15 @@ $(document).ready(function(){
     let newPlace = new Places(inputLocation, inputLandmarks, inputTime, inputNotes);
     placesIveBeen.addPlace(newPlace);
 
-    for (i=0; i <Object.keys(placesIveBeen).length - 1; i++) {
-      let htmlOutput = "<ul>" + "<p>" + newPlace.location + "</p>" + "<li>" + newPlace.landmarks + "</li>" + "<li>" + newPlace.timeOfYear + "</li>" + "<li>" + newPlace.notes + "</li>" + "</ul>" ;
+    for (i = 0; i < Object.keys(placesIveBeen).length - 1; i++) {
+      let htmlOutput = "<div class='card'>" + "<ul id=" + newPlace.location + ">" + "<p>" + newPlace.location + "</p>" + "<li>" + newPlace.landmarks + "</li>" + "<li>" + newPlace.timeOfYear + "</li>" + "<li>" + newPlace.notes + "</li>" + "</ul>" + "</div>" ;
       $(".location").append(htmlOutput);
     }
 
-
     $(".card").show();
-    
-
-    // "<li>" + newPlace.location + "</li>"
-    // $(".addDetails").append("<ul>" + Object.keys() + "</ul>")
-    
-    // $(".addDetails").append("<li>" + "Landmarks: " + inputLandmarks + "</li>" + "<li>" + "Time of Year: "+ inputTime + "</li>" + "<li>" + "Notes: " + inputNotes + "</li>");
-    $("p").click(function() {
-      $("li").show();
+    $("ul").click(function() {
+      $("li").toggle();
     })
   })
 })
 
-
-// $(document).ready(function(){
-//   $("#submit").submit(function(event) {
-//     event.preventDefault();
-//     const input = $("#input").val();
-//     const output = [];
-//     mrRobo(input).forEach(function(number) {
-//       output.push(number + " ");
-//       $("#output").append("<li>" + output.toString().split(",").pop() + "</li>");
-//     })
-//     $("#submit").hide();
-//     $(".hidden").toggleClass();
-//     $("#refresh").show();
-//     $("#userInput").append(input);
-//   })
-// })
