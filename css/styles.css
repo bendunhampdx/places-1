@@ -1,0 +1,7 @@
+.card {
+  border: 4px solid black;
+  padding: 6px
+}
+.addDetails {
+  display: none;
+}
